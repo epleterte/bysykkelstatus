@@ -1,0 +1,21 @@
+==Description==
+
+ Bash script for checking current status of Oslo Bysykkel racks via the command line. 
+ The script also features simple HTML output. 
+
+Tip: Find the ID of your rack using the 'all' keyword, then grep for the rack in question.
+  
+ ==Usage==
+
+Query Oslo Bysykkel racks for current status - any available bikes for me plz?
+Defaults to printing rack id and available bikes.
+Usage: ./bysykkel_status.sh [-a|-h|-l|-r <rack id>]
+    -a      Print all info from rack
+    -h      I'm helpful.
+    -l      Query for and return available rack id's, then exit.
+    -r      Set rack ID. Defaults to 75 (Arkitekt Rivertz' plass). Use keyword "all" to list all racks.
+
+Examples:
+    ./bysykkel_status.sh -a -r 75
+    ./bysykkel_status.sh -r "75 77 77"
+    ./bysykkel_status.sh -r all
