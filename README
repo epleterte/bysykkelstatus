@@ -1,11 +1,11 @@
 ==Description==
 
- Bash script for checking current status of Oslo Bysykkel racks via the command line. 
- The script also features simple HTML output. 
+Bash script for checking current status of Oslo Bysykkel racks via the command line. 
+The script also features simple HTML output. 
 
 Tip: Find the ID of your rack using the 'all' keyword, then grep for the rack in question.
   
- ==Usage==
+==Usage==
 
 Query Oslo Bysykkel racks for current status - any available bikes for me plz?
 Defaults to printing rack id and available bikes.
