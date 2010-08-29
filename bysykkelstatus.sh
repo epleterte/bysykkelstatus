@@ -74,8 +74,10 @@ function print_usage {
     cat <<EOF
 Query Oslo Bysykkel racks for current status - any available bikes for me plz?
 Defaults to printing rack id and available bikes.
-Usage: ${0} [-a|-h|-l|-r <rack id>]
+Usage: ${0} [-a|-c <config file>|-f <favourites>|-h|-l|-r <rack id>]
     -a      Print all info from rack
+    -c      Define config file to read from (defaults to ~/.bysykkelrc)
+    -f      Define favourites (ids) and write config file. Combine with -c to specify output path.
     -h      I'm helpful.
     -l      Query for and return available rack id's, then exit (not very useful).
     -r      Set rack ID. Defaults to 75 (Arkitekt Rivertz' plass). Use keyword "all" to list all racks.
@@ -96,7 +98,7 @@ test -f "${config_file_path}" && source "${config_file_path}"
 if [ "${favourites}" != "" ]; then
     rack_ids="${favourites}"
 fi
-while getopts aHhlr: o
+while getopts ac:f:Hhlr: o
 do
     case $o in
         h)
@@ -105,6 +107,15 @@ do
             ;;
         a)
             print_all="true"
+            ;;
+        c)
+            config_file_path="${OPTARG}"
+            ;;
+        f)
+            favourites="${OPTARG}"
+            # todo: validate input here
+            printf "# space separated list of favourites\nfavourites=\'${favourites}\'\n" > "${config_file_path}" || { echo "[ error ] Could not write to ${config_file_path}"; exit 1; } 
+            exit 0;
             ;;
         H)
             html="true"
@@ -123,6 +134,7 @@ do
                 done
             fi
             ;;
+        
         *)
             print_usage
             exit 1
