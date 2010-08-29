@@ -18,6 +18,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+config_file_path=~/.bysykkelrc
 
 # remote services
 racks_url="http://smartbikeportal.clearchannel.no/public/mobapp/maq.asmx/getRacks"
@@ -86,10 +87,15 @@ Examples:
 EOF
 }
 
-# default id = arkitekt rivertz plass yay yay
-rack_ids=75
+rack_ids=""
 print_all="false"
 html="false"
+favourites=""
+# read favorites
+test -f "${config_file_path}" && source "${config_file_path}"
+if [ "${favourites}" != "" ]; then
+    rack_ids="${favourites}"
+fi
 while getopts aHhlr: o
 do
     case $o in
