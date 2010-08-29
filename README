@@ -9,13 +9,17 @@ Tip: Find the ID of your rack using the 'all' keyword, then grep for the rack in
 
 Query Oslo Bysykkel racks for current status - any available bikes for me plz?
 Defaults to printing rack id and available bikes.
-Usage: ./bysykkel_status.sh [-a|-h|-l|-r <rack id>]
+Usage: ./bysykkelstatus.sh [-a|-c <config file>|-f <favourites>|-h|-l|-r <rack id>]
     -a      Print all info from rack
+    -c      Define config file to read from (defaults to ~/.bysykkelrc)
+    -f      Define favourites (ids) and write config file. Combine with -c to specify output path.
     -h      I'm helpful.
-    -l      Query for and return available rack id's, then exit.
-    -r      Set rack ID. Defaults to 75 (Arkitekt Rivertz' plass). Use keyword "all" to list all racks.
+    -l      Query for and return available rack id's, then exit (not very useful).
+    -r      Set rack ID - this can also be set in the favourites file. Use keyword "all" to list all racks.
 
 Examples:
-    ./bysykkel_status.sh -a -r 75
-    ./bysykkel_status.sh -r "75 77 77"
-    ./bysykkel_status.sh -r all
+    ./bysykkelstatus.sh -a -r 75
+    ./bysykkelstatus.sh -r "75 77 37"
+    ./bysykkelstatus.sh -r all
+    ./bysykkelstatus.sh -f 75
+    ./bysykkelstatus.sh -f "75 24"
