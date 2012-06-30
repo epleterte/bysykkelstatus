@@ -151,7 +151,7 @@ shift $(($OPTIND-1))
     echo '<html><head>
 <title>Bysykkelstatus</title>
 
-<style tupe="text/css">
+<style type="text/css">
     body { font-family: verdana,sans; font-size: 8pt; }
     td { font-family: verdana, sans; font-size: 10pt; }
 </style>
