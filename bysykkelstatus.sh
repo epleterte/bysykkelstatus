@@ -80,7 +80,7 @@ Usage: ${0} [-a|-c <config file>|-f <favourites>|-h|-l|-r <rack id>]
     -f      Define favourites (ids) and write config file. Combine with -c to specify output path.
     -h      I'm helpful.
     -l      Query for and return available rack id's, then exit (not very useful).
-    -r      Set rack ID - this can also be set in the favourites file. Use keyword "all" to list all racks.
+    -r      Rack ID to query for - this can also be set in the favourites file. Use keyword "all" to list all racks.
 
 Examples:
     ${0} -a -r 75
