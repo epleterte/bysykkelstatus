@@ -145,6 +145,8 @@ do
 done
 shift $(($OPTIND-1))
 
+[ "${#rack_ids}" -lt 1 ] && { printf 'no id set\n'; print_usage; exit; }
+
 [ "$html" == "true" ] && \
     echo '<html><head>
 <title>Bysykkelstatus</title>
